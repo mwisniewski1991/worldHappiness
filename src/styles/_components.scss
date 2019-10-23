@@ -1,0 +1,306 @@
+#mapid {
+    height: 500px;
+    width: 100%;
+}
+
+.custom-popup .leaflet-popup-content-wrapper {
+    background: $colorOne;
+    color: #7d5fff;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 10px;
+    box-shadow: 1px 1px 2px $colorFour;
+}
+
+.custom-popup .leaflet-popup-content-wrapper a {
+    color: rgba(#7d5fff, 0.1);
+}
+
+.custom-popup .leaflet-popup-tip-container {
+    width: 30px;
+    height: 15px;
+}
+
+.custom-popup .leaflet-popup-tip {
+    background: $colorOne;
+    border: none;
+    box-shadow: none;
+    box-shadow: 1px 1px 2px $colorFour;
+}
+
+
+
+.heading {
+    text-shadow: 0 0 4px $colorTwo;
+
+    &--one {
+        font-size: 7rem;
+        font-weight: 700;
+
+        @media screen and (max-width: $breakSmall) {
+            font-size: 5rem;
+        }
+
+    }
+
+    &--two {
+        font-size: 4rem;
+        font-weight: 700;
+
+        @media screen and (max-width: $breakSmall) {
+            font-size: 3rem;
+        }
+    }
+
+    &--three {
+        font-size: 2rem;
+
+        @media screen and (max-width: $breakSmall) {
+            font-size: 1.5rem;
+        }
+    }
+}
+
+.checkbox {
+
+
+    &__input {
+        display: none;
+    }
+
+    &__label {
+        // font-size: 1.8rem;
+
+        display: block;
+        cursor: pointer;
+
+        &:before {
+            content: "\2714";
+            border: 0.1em solid $colorTwo;
+            border-radius: 0.2em;
+            display: inline-block;
+
+            padding: 0 0 0 4px;
+
+            width: 2.5rem;
+            height: 2.5rem;
+            margin-right: 0.5rem;
+
+            color: transparent;
+            transition: .2s;
+
+            @media screen and (max-width: $breakSmall){
+                width: 2rem;
+                height: 2rem;
+                padding: 0 0 0 2px;
+            }
+        }
+
+        &:active:before {
+            transform: scale(0);
+        }
+
+    }
+
+    &__input:checked+&__label:before {
+        background-color: $colorTwo;
+        border-color: $colorTwo;
+        color: #fff;
+    }
+
+    &__input:disabled+&__label {
+        color: $colorFour;
+        cursor: default;
+    }
+
+    &__input:disabled+&__label:before {
+        transform: scale(1);
+        border-color: $colorFour;
+        background-color: $colorFour;
+    }
+}
+
+.radio {
+
+    &__input {
+        display: none;
+    }
+
+    &__label {
+
+        display: block;
+        cursor: pointer;
+
+        &:before {
+            // content: "\292C";
+            content: "";
+            border: 0.1em solid $colorTwo;
+            border-radius: 50%;
+            display: inline-block;
+
+            padding: 0 0 0 4px;
+
+            width: 2.5rem;
+            height: 2.5rem;
+            margin-right: 0.5rem;
+
+            color: transparent;
+            transition: .2s;
+
+            @media screen and (max-width: $breakSmall){
+                width: 2rem;
+                height: 2rem;
+            }
+        }
+
+        &:active:before {
+            transform: scale(0);
+        }
+
+    }
+
+    &__input:checked+&__label:before {
+        background-color: $colorTwo;
+        border-color: $colorTwo;
+        color: #fff;
+    }
+
+    &__input:disabled+&__label:before {
+        transform: scale(1);
+        border-color: #4b4b4b;
+    }
+
+    &__input:disabled+&__label {
+        color: $colorFour;
+        cursor: default;
+    }
+
+    &__input:checked:disabled+&__label:before {
+        transform: scale(1);
+        background-color: #4b4b4b;
+        border-color: #4b4b4b;
+    }
+}
+
+.range {
+    width: 80%;
+
+    position: relative;
+
+    &__input {
+
+        //reset
+        -webkit-appearance: none;
+        /* Hides the slider so that custom slider can be made */
+        width: 100%;
+        /* Specific width is required for Firefox. */
+        background: transparent;
+        /* Otherwise white in Chrome */
+
+        //THUMB
+        &::-webkit-slider-thumb {
+            //reset
+            -webkit-appearance: none;
+
+            //style
+            border: 2px solid $colorTwo;
+            height: 36px;
+            width: 16px;
+            border-radius: 3px;
+            background: $colorOne;
+            cursor: pointer;
+            margin-top: -14px;
+            /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+            box-shadow: 1px 1px 1px $colorTwo, 0px 0px 1px $colorTwo;
+            /* Add cool effects to your sliders! */
+
+            @media screen and (max-width: $breakSmall){
+                height: 28px;
+                width: 14px;
+                margin-top: -12px;
+            }
+        }
+
+        &::-moz-range-thumb {
+            border: 2px solid $colorTwo;
+            height: 36px;
+            width: 16px;
+            border-radius: 3px;
+            background: $colorOne;
+            cursor: pointer;
+            box-shadow: 1px 1px 1px $colorTwo, 0px 0px 1px $colorTwo;
+            /* Add cool effects to your sliders! */
+
+            @media screen and (max-width: $breakSmall){
+                height: 28px;
+                width: 14px;
+                margin-top: -12px;
+            }
+        }
+
+        //TRACK
+        &::-ms-track {
+            //reset
+            width: 100%;
+            cursor: pointer;
+            /* Hides the slider so custom styles can be added */
+            background: transparent;
+            border-color: transparent;
+            color: transparent;
+        }
+
+        &::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 8.4px;
+            cursor: pointer;
+            box-shadow: 1px 1px 1px $colorTwo 0px 0px 1px $colorTwo;
+            background: $colorTwo;
+            border-radius: 1.3px;
+            border: 0.2px solid $colorTwo;
+            
+            @media screen and (max-width: $breakSmall){
+                height: 6px;
+            }
+        }
+
+        &:focus::-webkit-slider-runnable-track {
+            background: lighten($colorTwo, 5);
+        }
+
+        &::-moz-range-track {
+            width: 100%;
+            height: 8.4px;
+            cursor: pointer;
+            box-shadow: 1px 1px 1px $colorTwo 0px 0px 1px $colorTwo;
+            background: #3071a9;
+            border-radius: 1.3px;
+            border: 0.2px solid $colorTwo;
+
+            @media screen and (max-width: $breakSmall){
+                height: 6px;
+            }
+        }
+    }
+
+    &__label {
+        position: absolute;
+        left: -40px;
+
+    }
+
+    &__input:disabled {
+        color: $colorFour;
+
+        &::-webkit-slider-thumb,
+        &::-webkit-slider-runnable-track {
+            border: 2px solid $colorFour;
+            cursor: default;
+        }
+
+        &::-moz-range-thumb,
+        &::-webkit-slider-runnable-track {
+            border: 2px solid $colorFour;
+        }
+
+    }
+}

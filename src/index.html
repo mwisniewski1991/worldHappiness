@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>World Happiness</title>
+
+    <!-- FAVICON -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
+
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa:400,700&display=swap" rel="stylesheet">
+
+    <!-- LEAFLET MAPS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin="" />
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+        integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+        crossorigin=""></script>
+
+</head>
+
+<body>
+    <header class="header">
+        <div class="header__title">
+            <h1 class="heading heading--one">World Happiness</h1>
+        </div>
+        <div class="header__logo">LOGO</div>
+    </header>
+
+    <main class="main">
+        <section class="section">
+
+            <div class="optionsBox">
+                <div class="optionsBox__title">
+
+                    <h2 class="heading heading--two">
+                        Options
+                    </h2>
+                </div>
+
+                <div class="optionsBox__controller">
+
+                    <div class="optionsBox__module module">
+                        <div class="optionsBox__subtitle">
+                            <h3 class="heading heading--three">Wybierz zmienną</h3>
+                        </div>
+                        <div class="optionsBox__options optionsBox__options--variables" id="variables--container">
+
+                            <div class="optionsBox__option  radio">
+                                <input type="radio" name="happinessVar" id="happinessVar--family" class="radio__input happinessVar" checked>
+                                <label for="happinessVar--family" class="radio__label">Rodzina</label>
+                            </div>
+
+                            <div class="optionsBox__option  radio">
+                                <input type="radio" name="happinessVar" id="happinessVar--freedom" class="radio__input happinessVar">
+                                <label for="happinessVar--freedom" class="radio__label">Wolność</label>
+                            </div>
+
+                            <div class="optionsBox__option  radio">
+                                <input type="radio" name="happinessVar" id="happinessVar--gdpPerCapita" class="radio__input happinessVar">
+                                <label for="happinessVar--gdpPerCapita" class="radio__label">PKB per Capita</label>
+                            </div>
+
+                            <div class="optionsBox__option  radio">
+                                <input type="radio" name="happinessVar" id="happinessVar--generosity" class="radio__input happinessVar">
+                                <label for="happinessVar--generosity" class="radio__label">Hojność</label>
+                            </div>
+
+                            <div class="optionsBox__option  radio">
+                                <input type="radio" name="happinessVar" id="happinessVar--lifeExpectancy" class="radio__input happinessVar">
+                                <label for="happinessVar--lifeExpectancy" class="radio__label">Długość życia</label>
+                            </div>
+
+                            <div class="optionsBox__option  radio">
+                                <input type="radio" name="happinessVar" id="happinessVar--trusGovermentCorruption" class="radio__input happinessVar">
+                                <label for="happinessVar--trusGovermentCorruption" class="radio__label">Zaufanie do władz</label>
+                            </div>
+
+                            <div class="optionsBox__option  radio">
+                                <input type="radio" name="happinessVar" id="happinessVar--happinessScore" class="radio__input happinessVar">
+                                <label for="happinessVar--happinessScore" class="radio__label">Ogólny wynik</label>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="optionsBox__module module">
+
+                        <div class="optionsBox__subtitle">
+                            <h3 class="heading heading--three">Wybierz kontynent</h3>
+                        </div>
+
+                        <div class="optionsBox__options optionsBox__options--continent" id="countrVar--container">
+
+                            <div class="optionsBox__option checkbox">
+                                <input type="checkbox" id="countrVar--europe" class="checkbox__input" checked>
+                                <label for="countrVar--europe" class="checkbox__label countrVar">Europa</label>
+                            </div>
+
+                            <div class="optionsBox__option checkbox">
+                                <input type="checkbox" id="countrVar--americas" class="checkbox__input" checked>
+                                <label for="countrVar--americas" class="checkbox__label countrVar">Ameryka</label>
+                            </div>
+
+                            <div class="optionsBox__option checkbox">
+                                <input type="checkbox" id="countrVar--asia" class="checkbox__input" checked>
+                                <label for="countrVar--asia" class="checkbox__label countrVar">Azja</label>
+                            </div>
+
+                            <div class="optionsBox__option checkbox">
+                                <input type="checkbox" id="countrVar--africa" class="checkbox__input" checked>
+                                <label for="countrVar--africa" class="checkbox__label countrVar">Afryka</label>
+                            </div>
+
+                            <div class="optionsBox__option checkbox">
+                                <input type="checkbox" id="countrVar--oceania" class="checkbox__input" checked>
+                                <label for="countrVar--oceania" class="checkbox__label countrVar">Oceania</label>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <div class="optionsBox__module module ">
+
+                        <div class="optionsBox__subtitle">
+                            <h3 class="heading heading--three">TOP krajów</h3>
+                        </div>
+                        
+                        <div class="optionsBox__options">
+                            <div class="optionsBox__option checkbox">
+                                <input type="checkbox" id="topCountryButton" class="checkbox__input">
+                                <label for="topCountryButton" class="checkbox__label">Włącz</label>
+                            </div>
+
+                            <div class="optionsBox__option range">
+                                <input type="range" id="topModeInput" class="range__input" min=1 max=138 value=10 disabled>
+                                <label for="topModeInput" id="topModeLabel" class="range__label">10</label>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+
+
+        <section class="section">
+            <div class="mapBox">
+                <div id="mapid" class="maps custom-popup"></div>
+            </div>
+        </section>
+
+    </main>
+
+
+    <script src="./js/index.js"></script>
+</body>
+
+</html>

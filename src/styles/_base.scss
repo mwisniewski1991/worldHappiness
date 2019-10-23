@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; //1rem = 10px
+
+    @media screen and (max-width: $breakMedium){
+        font-size: 50%; //1rem = 8px
+    }
+
+    @media screen and (max-width: $breakSmall){
+        font-size: 37.5%; //1rem = 6px
+    }
+}
+
+h1, h2, h3, span, p{
+    &::selection{
+        color: $colorOne;
+        background-color: $colorTwo;
+    }
+}
+
+body{
+    background-color: $colorOne;
+    font-family: 'Comfortaa', cursive;
+    color: $colorTwo;
+
+    padding: 1rem 2rem;
+}

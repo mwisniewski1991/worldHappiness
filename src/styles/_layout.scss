@@ -1,0 +1,111 @@
+.header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+
+    padding: 2rem 0;
+    border-bottom: 1px dotted $colorTwo;
+
+    &__title{
+    }
+
+    &__logo{
+        font-size: 2rem;
+    }
+}
+
+
+.section{
+
+}
+
+.optionsBox{
+
+    padding-top: 2rem;
+
+    &__title{
+        margin-left: 10rem;
+        padding-bottom: 2rem;
+
+    }
+
+    &__subtitle{
+        display: block;
+        text-align: center;
+
+        padding-bottom: 2rem;
+    }
+
+    &__controller{
+        // display: flex;
+        // justify-content: space-between;
+
+        display: grid;
+        grid-template-columns:  1fr 1fr 1fr;
+        grid-column-gap: 10px;
+        justify-items: center;
+        justify-content: center;
+
+        @media screen and (max-width: $breakSmall){
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+
+    &__module{
+        // background-color: #333;
+        width: 100%;
+        margin-bottom: 2rem;
+        padding-bottom: 3rem;
+
+        border-bottom: 1px dotted $colorTwo;
+
+       
+    }
+
+    &__options{
+        // display: flex;
+        // flex-wrap: wrap;
+        // justify-content: space-around;
+        width: 100%;
+        font-size: 1.5rem;
+
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-row-gap: 10px;
+        grid-column-gap: 1px;
+        // justify-items: center;
+        align-items: center;
+
+        @media screen and (max-width: $breakSmall){
+            padding-left: 2rem;
+        }
+
+        &--variables{
+
+            @media screen and (max-width: $breakSmall){
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+        }
+
+        &--continent{
+            @media screen and (max-width: $breakSmall){
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    }
+
+    &__option{
+        // width: 50%;   
+        width: 124px;   
+
+        @media screen and (max-width: $breakSmall){
+            width: 100px;   
+            // font-size: 1.5rem;
+            // text-align: center;
+            // width: 50%;
+        }
+    }
+
+}
